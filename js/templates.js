@@ -1,8 +1,9 @@
 const assessmentTemplate = function(assessment) {
+  console.log(assessment.weight);
   return `
   <tr>
     <td>${assessment.name}</td>
-    <td>${assessment.weight.toPrecision(4) * 100}</td>
+    <td>${assessment.weight.toPrecision(4) * 100 + '%'}</td>
     <td>${assessment.mark}</td>
   </tr>
   `;
@@ -20,10 +21,20 @@ const assessmentsTemplate = function(course) {
   return output;
 }
 
+const topicTemplate = function(course) {
+  for (let index of course.topics) {
+    return `
+      <td>${index}</td>
+    `;
+  }
+}
+
 const courseTemplate = function(course) {
   return `<h2>${course.name}</h2>
   <div id="course-details-${course.id}">
     <!-- Topics should go here -->
+    <h3>Topics</h3>
+    <tr>${topicTemplate(course)}</tr>
     <!-- Reading list should go here -->
   </div>
   <table class="table">
