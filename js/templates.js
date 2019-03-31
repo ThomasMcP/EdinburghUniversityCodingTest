@@ -2,7 +2,7 @@ const assessmentTemplate = function(assessment) {
   return `
   <tr>
     <td>${assessment.name}</td>
-    <td>${assessment.weight}</td>
+    <td>${assessment.weight.toPrecision(4) * 100}</td>
     <td>${assessment.mark}</td>
   </tr>
   `;
@@ -18,11 +18,6 @@ const assessmentsTemplate = function(course) {
   }
 
   return output;
-}
-
-function getPercentage(weight)
-{
-    return weight * 100;
 }
 
 const courseTemplate = function(course) {
