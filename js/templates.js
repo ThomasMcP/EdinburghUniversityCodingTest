@@ -21,12 +21,28 @@ const assessmentsTemplate = function(course) {
   return output;
 }
 
-const topicTemplate = function(course) {
-  let output = '';
+const renderTopics = function(course) {
+  let result = '';
   for (let index of course.topics) {
-    output += `<br><td>${index}</td> `;
+    result += `<p>${index}</p> `;
   }
-  return output;
+  return result;
+}
+
+const renderReadingList = function(course) {
+  let result = '';
+  // // TODO: Sort readingList in Ascending order.
+  // // TODO: Render Image Correctly.
+  for (index of course.readingList) {
+    result +=`
+    <div>
+      <p><b>${index.title}</b></p>
+      <p>By ${index.author}</p>
+      <img src="images/ + ${index.image}" alt="Book Image">
+    </div>
+    `
+  }
+  return result;
 }
 
 const courseTemplate = function(course) {
@@ -34,8 +50,10 @@ const courseTemplate = function(course) {
   <div id="course-details-${course.id}">
     <!-- Topics should go here -->
     <h3>Topics</h3>
-    <tr>${topicTemplate(course)}</tr>
+    ${renderTopics(course)}
     <!-- Reading list should go here -->
+    <h3>Reading List</h3>
+    ${renderReadingList(course)}
   </div>
   <table class="table">
     <thead>

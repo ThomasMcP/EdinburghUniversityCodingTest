@@ -22,7 +22,7 @@ Look at all the files and read through all the code before you begin any exercis
 
 ## Tasks
 
-### 1. Display weighting as percentage.
+### 1. Display weighting as percentage. (Done)
 The weighting should be displayed as a percentage to 2 decimal places.
 Update `js/templates.js` to do this.
 
