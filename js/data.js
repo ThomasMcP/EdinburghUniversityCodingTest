@@ -71,7 +71,7 @@ var courses = [
         dueDate: '2019-10-22',
         title: 'An Introduction to Neural Networds',
         author: 'Kevin Gurney',
-		image: null
+		    image: null
       }
     ]
   }

@@ -26,12 +26,12 @@ Look at all the files and read through all the code before you begin any exercis
 The weighting should be displayed as a percentage to 2 decimal places.
 Update `js/templates.js` to do this.
 
-### 2. Display the topics per course.
+### 2. Display the topics per course. (Done)
 Beneath the course title, display a list of the topics on each course.
 You can see this data defined for each course in `js/data.js`.
 There is a comment noting where this should appear in `js/templates.js`.
 
-### 3. Add the reading list per course.
+### 3. Add the reading list per course. (Done)
 Additionally, list *in order* the reading list of a course.
 The output should be in ascending order by the due date.
 You can see this data for each course in `js/data.js`.

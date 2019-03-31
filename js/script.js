@@ -9,5 +9,10 @@ for (let course of courses) {
 // Mark it as loaded for screen readers.
 courseWindow.setAttribute('aria-busy', 'false');
 
-// Event Listeners
-// document.querySelector('')
+// EventListener - Buttons
+// for (let course of courses) {
+//   document.querySelector('#course-details-btn').addEventListener('click', (course) => {
+//     const selectedDiv = document.querySelector(`#course-details-${course.id}`);
+//     selectedDiv.innerHTML = topicsAndReadingListTemplate(course);
+//   })
+// }

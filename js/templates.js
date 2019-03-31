@@ -40,7 +40,7 @@ const readingListTemplate = function(list) {
   <div class="reading-list-item">
     <p><b>${list.title}</b></p>
     <p>By ${list.author}</p>
-    <img class="book-thumbnail" src= "images/${list.image}" alt="Book Image">
+    <img class="book-thumbnail" src= "images/${list.image}" alt="images/404.png">
   </div>
   `
 }
@@ -49,29 +49,38 @@ const readingListsTemplate = function(course) {
   let result = '';
   // // TODO: Sort readingList in Ascending order.
   for (index of course.readingList) {
+    if (index.image === null){
+      index.image = "404.png";
+    }
     result += readingListTemplate(index);
   }
   return result;
 }
 
-const courseTemplate = function(course) {
-  return `<h2>${course.name}</h2>
-  <!-- Hidden by Default -->
-  <button id="course-details-btn" type="button">Show Course Details</button>
-  <div id="course-details-${course.id}" >
-    <!-- Topics should go here -->
+const topicsAndReadingListTemplate = function(course) {
+  return `
     <h3>Topics</h3>
       <div class="topics-wrapper">
         ${topicsTemplate(course)}
       </div>
+
     <!-- Reading list should go here -->
 
-
-    <!-- Hidden by Default -->
     <h3>Reading List</h3>
       <div class="reading-list-wrapper">
         ${readingListsTemplate(course)}
       </div>
+  `
+}
+
+const handleClick = function(course){
+  return topicsAndReadingListTemplate(course);
+}
+
+const courseTemplate = function(course) {
+  return `<h2>${course.name}</h2>
+  <button id="course-details-btn" type="button" onclick="${handleClick(course)}">Show Course Details</button>
+  <div id="course-details-${course.id}">
   </div>
   <table class="table">
     <!-- Add Grade & Overall Grade here -->
