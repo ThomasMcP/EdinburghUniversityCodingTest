@@ -22,11 +22,11 @@ const assessmentsTemplate = function(course) {
 }
 
 const topicTemplate = function(course) {
+  let output = '';
   for (let index of course.topics) {
-    return `
-      <td>${index}</td>
-    `;
+    output += `<br><td>${index}</td> `;
   }
+  return output;
 }
 
 const courseTemplate = function(course) {
