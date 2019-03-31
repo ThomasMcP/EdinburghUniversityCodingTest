@@ -23,7 +23,7 @@ const assessmentsTemplate = function(course) {
 const topicTemplate = function(topic){
   return `
   <div class="topic">
-  <p>${topic}</p>
+    <p>${topic}</p>
   </div>
   `
 }
@@ -64,8 +64,6 @@ const topicsAndReadingListTemplate = function(course) {
         ${topicsTemplate(course)}
       </div>
 
-    <!-- Reading list should go here -->
-
     <h3>Reading List</h3>
       <div class="reading-list-wrapper">
         ${readingListsTemplate(course)}
@@ -79,8 +77,9 @@ const handleClick = function(course){
 
 const courseTemplate = function(course) {
   return `<h2>${course.name}</h2>
-  <button id="course-details-btn" type="button" onclick="${handleClick(course)}">Show Course Details</button>
+  <button id="course-details-btn" type="button" onclick="">Show Course Details</button>
   <div id="course-details-${course.id}">
+    ${topicsAndReadingListTemplate(course)}
   </div>
   <table class="table">
     <!-- Add Grade & Overall Grade here -->
