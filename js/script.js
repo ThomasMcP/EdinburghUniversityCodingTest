@@ -8,3 +8,6 @@ for (let course of courses) {
 
 // Mark it as loaded for screen readers.
 courseWindow.setAttribute('aria-busy', 'false');
+
+// Event Listeners
+// document.querySelector('')

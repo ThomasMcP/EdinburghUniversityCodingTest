@@ -1,5 +1,4 @@
 const assessmentTemplate = function(assessment) {
-  console.log(assessment.weight);
   return `
   <tr>
     <td>${assessment.name}</td>
@@ -21,44 +20,57 @@ const assessmentsTemplate = function(course) {
   return output;
 }
 
-const renderTopics = function(course) {
+const topicTemplate = function(topic){
+  return `
+  <div class="topic">
+  <p>${topic}</p>
+  </div>
+  `
+}
+const topicsTemplate = function(course) {
   let result = '';
   for (let index of course.topics) {
-    result += `
-    <div<p>${index}</p> `;
+    result += topicTemplate(index);
   }
   return result;
 }
 
-const renderReadingList = function(course) {
+const readingListTemplate = function(list) {
+  return `
+  <div class="reading-list-item">
+    <p><b>${list.title}</b></p>
+    <p>By ${list.author}</p>
+    <img class="book-thumbnail" src= "images/${list.image}" alt="Book Image">
+  </div>
+  `
+}
+
+const readingListsTemplate = function(course) {
   let result = '';
   // // TODO: Sort readingList in Ascending order.
   for (index of course.readingList) {
-    result +=`
-    <div class="readingListItem">
-      <p><b>${index.title}</b></p>
-      <p>By ${index.author}</p>
-      <img class="book-thumbnail" src= "images/${index.image}" alt="Book Image">
-    </div>
-    `
+    result += readingListTemplate(index);
   }
   return result;
 }
 
 const courseTemplate = function(course) {
   return `<h2>${course.name}</h2>
-  <div id="course-details-${course.id}">
+  <!-- Hidden by Default -->
+  <button id="course-details-btn" type="button">Show Course Details</button>
+  <div id="course-details-${course.id}" >
     <!-- Topics should go here -->
     <h3>Topics</h3>
-    <!-- Added wrapper for potential CSS use -->
-      <div class="topics-wrapper"
-        ${renderTopics(course)}
+      <div class="topics-wrapper">
+        ${topicsTemplate(course)}
       </div>
     <!-- Reading list should go here -->
+
+
+    <!-- Hidden by Default -->
     <h3>Reading List</h3>
-    <!-- Added wrapper for potential CSS use -->
       <div class="reading-list-wrapper">
-        ${renderReadingList(course)}
+        ${readingListsTemplate(course)}
       </div>
   </div>
   <table class="table">
