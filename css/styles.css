@@ -1,3 +1,8 @@
 .book-thumbnail {
   max-width: 35px; /* Only display small images for thumbnails */
 }
+
+/* Added a Margin between each Reading List Item */
+.readingListItems {
+  margin-bottom: 10px;
+}
