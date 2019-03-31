@@ -38,7 +38,7 @@ const renderReadingList = function(course) {
     <div>
       <p><b>${index.title}</b></p>
       <p>By ${index.author}</p>
-      <img src="images/ + ${index.image}" alt="Book Image">
+      <img src= "images/${index.image}" alt="Book Image">
     </div>
     `
   }
