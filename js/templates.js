@@ -50,10 +50,16 @@ const courseTemplate = function(course) {
   <div id="course-details-${course.id}">
     <!-- Topics should go here -->
     <h3>Topics</h3>
-    ${renderTopics(course)}
+    <!-- Added wrapper for potential CSS use -->
+      <div class="topics-wrapper"
+        ${renderTopics(course)}
+      </div>
     <!-- Reading list should go here -->
     <h3>Reading List</h3>
-    ${renderReadingList(course)}
+    <!-- Added wrapper for potential CSS use -->
+      <div class="reading-list-wrapper">
+        ${renderReadingList(course)}
+      </div>
   </div>
   <table class="table">
     <!-- Add Grade & Overall Grade here -->
