@@ -1,0 +1,3 @@
+.book-thumbnail {
+  max-width: 35px; /* Only display small images for thumbnails */
+}
