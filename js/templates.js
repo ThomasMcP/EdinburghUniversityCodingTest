@@ -4,9 +4,39 @@ const assessmentTemplate = function(assessment) {
     <td>${assessment.name}</td>
     <td>${assessment.weight.toPrecision(4) * 100 + '%'}</td>
     <td>${assessment.mark}</td>
+    <td>${calculateGrade(assessment.mark)}</td>
   </tr>
   `;
 }
+
+const calculateGrade = function(mark) {
+  if (mark >= 0 && mark <= 9) {
+    return "H";
+  } else if (mark >= 10 && mark <= 19) {
+    return "G";
+  } else if (mark >= 20 && mark <= 29) {
+    return "F";
+  } else if (mark >= 30 && mark <= 39) {
+    return "E";
+  } else if (mark >= 40 && mark <= 49) {
+    return "D";
+  } else if (mark >= 50 && mark <= 59) {
+    return "C";
+  } else if (mark >= 60 && mark <= 69) {
+    return "B";
+  } else if (mark >= 70 && mark <= 100) {
+    return "A";
+  }
+}
+
+// | 0 - 9     | H     | Red    |
+// | 10 - 19   | G     | Red    |
+// | 20 - 29   | F     | Red    |
+// | 30 - 39   | E     | Orange |
+// | 40 - 49   | D     | Orange |
+// | 50 - 59   | C     | Orange |
+// | 60 - 69   | B     | Green  |
+// | 70 - 100  | A     | Green  |
 
 const assessmentsTemplate = function(course) {
   // Check if there are no assessments.
@@ -71,23 +101,26 @@ const topicsAndReadingListTemplate = function(course) {
   `
 }
 
-const handleClick = function(course){
-  return topicsAndReadingListTemplate(course);
-}
+// function handleClick(course) {
+//   div = document.querySelector(`#course-details-${course.id}`);
+//   topicsAndReadingListTemplate(course);
+// }
 
 // ${topicsAndReadingListTemplate(course)}
 
 const courseTemplate = function(course) {
   return `<h2>${course.name}</h2>
-  <button id="course-details-btn" type="button" onclick="document.getElementById('course-details-${course.id}').textContent = 'Course Content Here!'">Show Course Details</button>
   <div id="course-details-${course.id}">
+    ${topicsAndReadingListTemplate(course)}
   </div>
+    <button class="course-details-btn" id="button-${course.id}" type="button">Show More Details</button>
   <table class="table">
     <!-- Add Grade & Overall Grade here -->
     <thead>
       <th>Assessment</th>
       <th>Weighting</th>
       <th>Mark</th>
+      <th>Grade</th>
     </thead>
     <tbody>
       ${assessmentsTemplate(course)}
