@@ -9,13 +9,6 @@ const assessmentTemplate = function(assessment) {
   `;
 }
 
-// <span class="label label-default">Default</span>
-// <span class="label label-primary">Primary</span>
-// <span class="label label-success">Success</span>
-// <span class="label label-info">Info</span>
-// <span class="label label-warning">Warning</span>
-// <span class="label label-danger">Danger</span>
-
 const calculateGrade = function(mark) {
   if (mark >= 0 && mark <= 9) {
     return `<span class="label label-danger">H</span>`;
@@ -105,8 +98,43 @@ const topicsAndReadingListTemplate = function(course) {
 // }
 
 // ${topicsAndReadingListTemplate(course)}
+const calculatedFinalPercentages = function(assessment) {
+  // console.log(assessment);
+  let percentage1 = assessment.mark / 100;
+  let percentage2 = assessment.weight;
+  let calculated = percentage1 * percentage2;
+  return calculated;
+}
+
+const arrayOfPercentages = function(course) {
+  percentages = [];
+  for (index of course.assessments) {
+    let percentage1 = (index.mark / 100);
+    let percentage2 = index.weight;
+    let percentagefinal = percentage1 * percentage2;
+    percentages.push(percentagefinal);
+  }
+  return percentages;
+}
+
+function calculateOverallMark(array) {
+  total = 0;
+  for (percent of array) {
+    total += percent;
+  }
+  return total * 100;
+}
+
+const finalMarkTemplate = function(course) {
+  let percentages = arrayOfPercentages(course);
+  let finalMark = calculateOverallMark(percentages);
+  // console.log(finalMark);
+  return finalMark;
+
+}
 
 const courseTemplate = function(course) {
+  console.log(finalMarkTemplate(course));
   return `<h2>${course.name}</h2>
   <div id="course-details-${course.id}">
     ${topicsAndReadingListTemplate(course)}
@@ -121,6 +149,7 @@ const courseTemplate = function(course) {
       <th>Grade</th>
     </thead>
     <tbody>
+      ${finalMarkTemplate(course)}
       ${assessmentsTemplate(course)}
     </tbody>
   </table>`;
