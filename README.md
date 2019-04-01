@@ -43,7 +43,7 @@ Each assessment has a weighting defining how much that assessment contributes to
 Using the marks and weighting of each assessment, update `js/templates.js` to display the final overall course mark for each course.
 This should be rounded to the nearest integer.
 
-### 5. Show grades based on the marks. (Can show Grade, Now adding Colour.)
+### 5. Show grades based on the marks. (Can show Grade and Colour!)
 Grades are defined as below based on marks:
 
 | Mark      | Grade | Colour |
@@ -62,7 +62,7 @@ Using the Bootstrap 3 `.label` class, display the grade next to each mark on all
 ### 6. Add in the overall grade
 Add in the overall grade to be shown next to the overall final course mark that you added in #4.
 
-### 7. Make the topics & reading list hidden by default, and display on click. (Unfinished!)
+### 7. Make the topics & reading list hidden by default, and display on click. (Incomplete!)
 Make the `div` that wraps the topics & reading lists that you added in #2 and #3 appear hidden by default.
 Add a button that appears after each course title to "Show more details".
 This should toggle the display of this `div` for each course on click.

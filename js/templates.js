@@ -9,34 +9,32 @@ const assessmentTemplate = function(assessment) {
   `;
 }
 
+// <span class="label label-default">Default</span>
+// <span class="label label-primary">Primary</span>
+// <span class="label label-success">Success</span>
+// <span class="label label-info">Info</span>
+// <span class="label label-warning">Warning</span>
+// <span class="label label-danger">Danger</span>
+
 const calculateGrade = function(mark) {
   if (mark >= 0 && mark <= 9) {
-    return "H";
+    return `<span class="label label-danger">H</span>`;
   } else if (mark >= 10 && mark <= 19) {
-    return "G";
+    return `<span class="label label-danger">G</span>`;
   } else if (mark >= 20 && mark <= 29) {
-    return "F";
+    return `<span class="label label-danger">F</span>`;
   } else if (mark >= 30 && mark <= 39) {
-    return "E";
+    return `<span class="label label-warning">E</span>`;
   } else if (mark >= 40 && mark <= 49) {
-    return "D";
+    return `<span class="label label-warning">D</span>`;
   } else if (mark >= 50 && mark <= 59) {
-    return "C";
+    return `<span class="label label-warning">C</span>`;
   } else if (mark >= 60 && mark <= 69) {
-    return "B";
+    return `<span class="label label-success">B</span>`;
   } else if (mark >= 70 && mark <= 100) {
-    return "A";
+    return `<span class="label label-success">A</span>`;
   }
 }
-
-// | 0 - 9     | H     | Red    |
-// | 10 - 19   | G     | Red    |
-// | 20 - 29   | F     | Red    |
-// | 30 - 39   | E     | Orange |
-// | 40 - 49   | D     | Orange |
-// | 50 - 59   | C     | Orange |
-// | 60 - 69   | B     | Green  |
-// | 70 - 100  | A     | Green  |
 
 const assessmentsTemplate = function(course) {
   // Check if there are no assessments.
