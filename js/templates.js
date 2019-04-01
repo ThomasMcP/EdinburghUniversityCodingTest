@@ -75,11 +75,12 @@ const handleClick = function(course){
   return topicsAndReadingListTemplate(course);
 }
 
+// ${topicsAndReadingListTemplate(course)}
+
 const courseTemplate = function(course) {
   return `<h2>${course.name}</h2>
-  <button id="course-details-btn" type="button" onclick="">Show Course Details</button>
+  <button id="course-details-btn" type="button" onclick="document.getElementById('course-details-${course.id}').textContent = 'Course Content Here!'">Show Course Details</button>
   <div id="course-details-${course.id}">
-    ${topicsAndReadingListTemplate(course)}
   </div>
   <table class="table">
     <!-- Add Grade & Overall Grade here -->
